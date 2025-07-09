@@ -135,7 +135,9 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     description={"suggested_value": options.get(
                         CONF_HVAC_MODES, DEFAULT_HVAC_MODES
                     )},
-                    default=DEFAULT_HVAC_MODES,
+                    default=options.get(
+                        CONF_HVAC_MODES, DEFAULT_HVAC_MODES
+                    ),
                 ): vol.Any(
                     None,
                     selector.SelectSelector(
@@ -252,8 +254,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 ),
                 vol.Optional(
                     CONF_FAN_MODES,
-                    description={"suggested_value": options.get(DEFAULT_FAN_MODES)},
-                    default=DEFAULT_FAN_MODES,
+                    description={"suggested_value": options.get(
+                        CONF_FAN_MODES, DEFAULT_FAN_MODES
+                    )},
+                    default=options.get(
+                        CONF_FAN_MODES, DEFAULT_FAN_MODES
+                    ),
                 ): vol.Any(
                     None,
                     selector.SelectSelector(
@@ -265,6 +271,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 ),
                 vol.Optional(
                     CONF_SWING_MODES,
+                    description={"suggested_value": options.get(
+                        CONF_SWING_MODES, DEFAULT_SWING_MODES
+                    )},
+                    default=options.get(
+                        CONF_SWING_MODES, DEFAULT_SWING_MODES
+                    ),
                     description={"suggested_value": options.get(DEFAULT_SWING_MODES)},
                     default=DEFAULT_SWING_MODES,
                 ): vol.Any(
@@ -278,8 +290,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 ),
                 vol.Optional(
                     CONF_SWING_HORIZONTAL_MODES,
-                    description={"suggested_value": options.get(DEFAULT_SWING_HORIZONTAL_MODES)},
-                    default=DEFAULT_SWING_HORIZONTAL_MODES,
+                    description={"suggested_value": options.get(
+                        CONF_SWING_HORIZONTAL_MODES, DEFAULT_SWING_HORIZONTAL_MODES
+                    )},
+                    default=options.get(
+                        CONF_SWING_HORIZONTAL_MODES, DEFAULT_SWING_HORIZONTAL_MODES
+                    ),
                 ): vol.Any(
                     None,
                     selector.SelectSelector(
