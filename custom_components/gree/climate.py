@@ -161,8 +161,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 async def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
     _LOGGER.info('Setting up Gree climate platform')
 
-    config = PLATFORM_SCHEMA(config)
-
     name = config.get(CONF_NAME)
     ip_addr = config.get(CONF_HOST)
     port = config.get(CONF_PORT)
@@ -180,8 +178,7 @@ async def async_setup_platform(hass, config, async_add_devices, discovery_info=N
     air_entity_id = config.get(CONF_AIR)
     target_temp_entity_id = config.get(CONF_TARGET_TEMP)
 
-
-    hvac_modes = [getattr(HVACMode, key.upper()) for key in config.get(CONF_HVAC_MODES)]
+    hvac_modes = [getattr(HVACMode, mode.strip().upper()) for mode in config.get(CONF_HVAC_MODES).split(",") if mode.strip()]
 
     fan_modes = config.get(CONF_FAN_MODES)
     swing_modes = config.get(CONF_SWING_MODES)
@@ -243,7 +240,6 @@ async def async_setup_entry(hass, entry, async_add_devices):
     for key, value in entry.options.items():
         if key in OPTION_KEYS and value is not None:
             config[key] = value
-    config = PLATFORM_SCHEMA(config)
     await async_setup_platform(hass, config, async_add_devices)
 
 
