@@ -24,7 +24,11 @@ from .const import DOMAIN
 from .climate import (
     DEFAULT_PORT,
     DEFAULT_TIMEOUT,
+    DEFAULT_HVAC_MODES,
     DEFAULT_TARGET_TEMP_STEP,
+    DEFAULT_FAN_MODES,
+    DEFAULT_SWING_MODES,
+    DEFAULT_SWING_HORIZONTAL_MODES,
     CONF_TARGET_TEMP_STEP,
     CONF_TEMP_SENSOR,
     CONF_LIGHTS,
@@ -129,6 +133,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 vol.Optional(
                     CONF_HVAC_MODES,
                     description={"suggested_value": options.get(CONF_HVAC_MODES)},
+                    default=DEFAULT_HVAC_MODES,
                 ): vol.Any(None, list[str]),
                 vol.Optional(
                     CONF_TARGET_TEMP_STEP,
@@ -238,14 +243,17 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 vol.Optional(
                     CONF_FAN_MODES,
                     description={"suggested_value": options.get(CONF_FAN_MODES)},
+                    default=DEFAULT_FAN_MODES,
                 ): vol.Any(None, list[str]),
                 vol.Optional(
                     CONF_SWING_MODES,
                     description={"suggested_value": options.get(CONF_SWING_MODES)},
+                    default=DEFAULT_SWING_MODES,
                 ): vol.Any(None, list[str]),
                 vol.Optional(
                     CONF_SWING_HORIZONTAL_MODES,
                     description={"suggested_value": options.get(CONF_SWING_HORIZONTAL_MODES)},
+                    default=DEFAULT_SWING_HORIZONTAL_MODES,
                 ): vol.Any(None, list[str]),
                 vol.Optional(
                     CONF_ANTI_DIRECT_BLOW,
