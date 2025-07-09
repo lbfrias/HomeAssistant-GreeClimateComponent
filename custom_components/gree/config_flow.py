@@ -134,7 +134,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     CONF_HVAC_MODES,
                     description={"suggested_value": options.get(','.join(DEFAULT_HVAC_MODES))},
                     default=','.join(DEFAULT_HVAC_MODES),
-                ): vol.Any(None, str),
+                ): vol.Any(
+                    None,
+                    selector.SelectSelector(
+                        selector.SelectSelectorConfig(multiple=True, options=["auto", "cool", "dry", "fan_only", "off"])
+                    )
+                ),
                 vol.Optional(
                     CONF_TARGET_TEMP_STEP,
                     default=options.get(
