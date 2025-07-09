@@ -78,6 +78,20 @@
           "beeper": "Beeper Entity"
         }
       }
+    },
+    "selector": {
+      "option": {
+        "options": {
+          "auto": "Auto",
+          "low": "Low",
+          "medium_low": "Medium-Low",
+          "medium": "Medium",
+          "medium_high": "Medium-High",
+          "high": "High",
+          "turbo": "Turbo",
+          "quiet": "Quiet"
+        }
+      }
     }
   },
   "entity": {
