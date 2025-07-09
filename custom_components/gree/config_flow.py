@@ -132,7 +132,9 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             {
                 vol.Optional(
                     CONF_HVAC_MODES,
-                    description={"suggested_value": options.get(DEFAULT_HVAC_MODES)},
+                    description={"suggested_value": options.get(
+                        CONF_HVAC_MODES, DEFAULT_HVAC_MODES
+                    )},
                     default=DEFAULT_HVAC_MODES,
                 ): vol.Any(
                     None,
