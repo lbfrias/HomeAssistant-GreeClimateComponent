@@ -29,6 +29,7 @@ from .climate import (
     DEFAULT_FAN_MODES,
     DEFAULT_SWING_MODES,
     DEFAULT_SWING_HORIZONTAL_MODES,
+    CONF_HVAC_MODES,
     CONF_TARGET_TEMP_STEP,
     CONF_TEMP_SENSOR,
     CONF_LIGHTS,
@@ -42,7 +43,6 @@ from .climate import (
     CONF_UID,
     CONF_AUTO_XFAN,
     CONF_AUTO_LIGHT,
-    CONF_HVAC_MODES,
     CONF_FAN_MODES,
     CONF_SWING_MODES,
     CONF_SWING_HORIZONTAL_MODES,
@@ -133,7 +133,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 vol.Optional(
                     CONF_HVAC_MODES,
                     description={"suggested_value": options.get(CONF_HVAC_MODES)},
-                    default=options.get(DEFAULT_HVAC_MODES),
+                    default=DEFAULT_HVAC_MODES,
                 ): vol.Any(None, list[str]),
                 vol.Optional(
                     CONF_TARGET_TEMP_STEP,
