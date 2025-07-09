@@ -77,19 +77,19 @@
           "temp_sensor_offset": "Temperature Sensor Offset",
           "beeper": "Beeper Entity"
         }
-      },
-      "selector": {
-        "fan_modes": {
-          "options": {
-              "auto": "Auto",
-              "low": "Low",
-              "medium_low": "Medium-Low",
-              "medium": "Medium",
-              "medium_high": "Medium-High",
-              "high": "High",
-              "turbo": "Turbo",
-              "quiet": "Quiet"
-          }
+      }
+    },
+    "selector": {
+      "fan_modes": {
+        "options": {
+          "auto": "Auto",
+          "low": "Low",
+          "medium_low": "Medium-Low",
+          "medium": "Medium",
+          "medium_high": "Medium-High",
+          "high": "High",
+          "turbo": "Turbo",
+          "quiet": "Quiet"
         }
       }
     }
