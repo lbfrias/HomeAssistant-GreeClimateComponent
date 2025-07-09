@@ -39,8 +39,6 @@ try: import simplejson
 except ImportError: import json as simplejson
 from datetime import timedelta
 
-from .helpers import is_subset_of
-
 REQUIREMENTS = ['pycryptodome']
 
 _LOGGER = logging.getLogger(__name__)
