@@ -132,12 +132,15 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             {
                 vol.Optional(
                     CONF_HVAC_MODES,
-                    description={"suggested_value": options.get(','.join(DEFAULT_HVAC_MODES))},
-                    default=','.join(DEFAULT_HVAC_MODES),
+                    description={"suggested_value": options.get(DEFAULT_HVAC_MODES)},
+                    default=DEFAULT_HVAC_MODES,
                 ): vol.Any(
                     None,
                     selector.SelectSelector(
-                        selector.SelectSelectorConfig(multiple=True, options=["auto", "cool", "dry", "fan_only", "off"])
+                        selector.SelectSelectorConfig(
+                            options=DEFAULT_HVAC_MODES,
+                            multiple=True,
+                            custom_value=True,)
                     )
                 ),
                 vol.Optional(
@@ -247,19 +250,43 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 ),
                 vol.Optional(
                     CONF_FAN_MODES,
-                    description={"suggested_value": options.get(','.join(DEFAULT_FAN_MODES))},
-                    default=','.join(DEFAULT_FAN_MODES),
-                ): vol.Any(None, str),
+                    description={"suggested_value": options.get(DEFAULT_FAN_MODES)},
+                    default=DEFAULT_FAN_MODES,
+                ): vol.Any(
+                    None,
+                    selector.SelectSelector(
+                        selector.SelectSelectorConfig(
+                            options=DEFAULT_FAN_MODES,
+                            multiple=True,
+                            custom_value=True,)
+                    )
+                ),
                 vol.Optional(
                     CONF_SWING_MODES,
-                    description={"suggested_value": options.get(','.join(DEFAULT_SWING_MODES))},
-                    default=','.join(DEFAULT_SWING_MODES),
-                ): vol.Any(None, str),
+                    description={"suggested_value": options.get(DEFAULT_SWING_MODES)},
+                    default=DEFAULT_SWING_MODES,
+                ): vol.Any(
+                    None,
+                    selector.SelectSelector(
+                        selector.SelectSelectorConfig(
+                            options=DEFAULT_SWING_MODES,
+                            multiple=True,
+                            custom_value=True,)
+                    )
+                ),
                 vol.Optional(
                     CONF_SWING_HORIZONTAL_MODES,
-                    description={"suggested_value": options.get(','.join(DEFAULT_SWING_HORIZONTAL_MODES))},
-                    default=','.join(DEFAULT_SWING_HORIZONTAL_MODES),
-                ): vol.Any(None, str),
+                    description={"suggested_value": options.get(DEFAULT_SWING_HORIZONTAL_MODES)},
+                    default=DEFAULT_SWING_HORIZONTAL_MODES,
+                ): vol.Any(
+                    None,
+                    selector.SelectSelector(
+                        selector.SelectSelectorConfig(
+                            options=DEFAULT_SWING_HORIZONTAL_MODES,
+                            multiple=True,
+                            custom_value=True,)
+                    )
+                ),
                 vol.Optional(
                     CONF_ANTI_DIRECT_BLOW,
                     description={"suggested_value": options.get(CONF_ANTI_DIRECT_BLOW)},
