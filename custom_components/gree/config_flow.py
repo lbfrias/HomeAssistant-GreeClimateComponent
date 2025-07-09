@@ -268,7 +268,6 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                             options=DEFAULT_FAN_MODES,
                             multiple=True,
                             custom_value=True,
-                            translation_key="option"
                         )
                     )
                 ),

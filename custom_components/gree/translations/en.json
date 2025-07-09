@@ -55,7 +55,19 @@
         "title": "Gree Climate Options",
         "data": {
           "hvac_modes" : "HVAC Modes",
-          "fan_modes" : "Fan Modes",
+          "fan_modes" : {
+            "name" : "Fan Modes",
+            "data" : {
+              "auto": "Auto",
+              "low": "Low",
+              "medium_low": "Medium-Low",
+              "medium": "Medium",
+              "medium_high": "Medium-High",
+              "high": "High",
+              "turbo": "Turbo",
+              "quiet": "Quiet"
+            }
+          },
           "swing_modes" : "Vertical Swing Modes",
           "swing_horizontal_modes" : "Horizontal Swing Modes",
           "target_temp_step": "Temperature Step",
@@ -76,20 +88,6 @@
           "light_sensor": "Light Sensor Entity",
           "temp_sensor_offset": "Temperature Sensor Offset",
           "beeper": "Beeper Entity"
-        }
-      }
-    },
-    "selector": {
-      "option": {
-        "options": {
-          "auto": "Auto",
-          "low": "Low",
-          "medium_low": "Medium-Low",
-          "medium": "Medium",
-          "medium_high": "Medium-High",
-          "high": "High",
-          "turbo": "Turbo",
-          "quiet": "Quiet"
         }
       }
     }
