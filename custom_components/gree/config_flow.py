@@ -277,8 +277,6 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     default=options.get(
                         CONF_SWING_MODES, DEFAULT_SWING_MODES
                     ),
-                    description={"suggested_value": options.get(DEFAULT_SWING_MODES)},
-                    default=DEFAULT_SWING_MODES,
                 ): vol.Any(
                     None,
                     selector.SelectSelector(
