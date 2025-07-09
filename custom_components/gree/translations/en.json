@@ -83,9 +83,9 @@
             "state": {
               "auto": "Auto",
               "low": "Low",
-              "medium-low": "Medium-Low",
+              "medium_low": "Medium-Low",
               "medium": "Medium",
-              "medium-high": "Medium-High",
+              "medium_high": "Medium-High",
               "high": "High",
               "turbo": "Turbo",
               "quiet": "Quiet"
