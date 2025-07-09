@@ -6,6 +6,8 @@ import logging
 
 import voluptuous as vol
 
+from .helpers import mode_validator
+
 from homeassistant import config_entries
 from homeassistant.core import callback
 from homeassistant.helpers import selector
@@ -133,8 +135,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 vol.Optional(
                     CONF_HVAC_MODES,
                     description={"suggested_value": options.get(','.join(DEFAULT_HVAC_MODES))},
-                    default=','.join(DEFAULT_HVAC_MODES),
-                ): vol.Any(None, str),
+                    default=DEFAULT_HVAC_MODES,
+                ): mode_validator(DEFAULT_HVAC_MODES),
                 vol.Optional(
                     CONF_TARGET_TEMP_STEP,
                     default=options.get(
@@ -243,18 +245,18 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 vol.Optional(
                     CONF_FAN_MODES,
                     description={"suggested_value": options.get(','.join(DEFAULT_FAN_MODES))},
-                    default=','.join(DEFAULT_FAN_MODES),
-                ): vol.Any(None, str),
+                    default=DEFAULT_FAN_MODES,
+                ): mode_validator(DEFAULT_FAN_MODES),
                 vol.Optional(
                     CONF_SWING_MODES,
                     description={"suggested_value": options.get(','.join(DEFAULT_SWING_MODES))},
-                    default=','.join(DEFAULT_SWING_MODES),
-                ): vol.Any(None, str),
+                    default=DEFAULT_SWING_MODES,
+                ): mode_validator(DEFAULT_SWING_MODES),
                 vol.Optional(
                     CONF_SWING_HORIZONTAL_MODES,
                     description={"suggested_value": options.get(','.join(DEFAULT_SWING_HORIZONTAL_MODES))},
-                    default=','.join(DEFAULT_SWING_HORIZONTAL_MODES),
-                ): vol.Any(None, str),
+                    default=DEFAULT_SWING_HORIZONTAL_MODES,
+                ): mode_validator(DEFAULT_SWING_HORIZONTAL_MODES),
                 vol.Optional(
                     CONF_ANTI_DIRECT_BLOW,
                     description={"suggested_value": options.get(CONF_ANTI_DIRECT_BLOW)},
