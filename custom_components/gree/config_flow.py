@@ -243,17 +243,17 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 vol.Optional(
                     CONF_FAN_MODES,
                     description={"suggested_value": options.get(CONF_FAN_MODES)},
-                    default=options.get(DEFAULT_FAN_MODES),
+                    default=DEFAULT_FAN_MODES,
                 ): vol.Any(None, list[str]),
                 vol.Optional(
                     CONF_SWING_MODES,
                     description={"suggested_value": options.get(CONF_SWING_MODES)},
-                    default=options.get(DEFAULT_SWING_MODES),
+                    default=DEFAULT_SWING_MODES,
                 ): vol.Any(None, list[str]),
                 vol.Optional(
                     CONF_SWING_HORIZONTAL_MODES,
                     description={"suggested_value": options.get(CONF_SWING_HORIZONTAL_MODES)},
-                    default=options.get(DEFAULT_SWING_HORIZONTAL_MODES),
+                    default=DEFAULT_SWING_HORIZONTAL_MODES,
                 ): vol.Any(None, list[str]),
                 vol.Optional(
                     CONF_ANTI_DIRECT_BLOW,
