@@ -15,3 +15,10 @@ def mode_validator(allowed_values):
         
         return parts
     return validator
+
+def string_to_list(value):
+    if isinstance(value, str):
+        return [v.strip() for v in value.split(",") if v.strip()]
+    elif isinstance(value, list):
+        return value
+    return []

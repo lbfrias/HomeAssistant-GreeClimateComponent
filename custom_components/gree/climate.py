@@ -39,7 +39,7 @@ try: import simplejson
 except ImportError: import json as simplejson
 from datetime import timedelta
 
-from .helpers import mode_validator
+from .helpers import mode_validator, string_to_list
 
 REQUIREMENTS = ['pycryptodome']
 
@@ -180,9 +180,9 @@ async def async_setup_platform(hass, config, async_add_devices, discovery_info=N
 
     hvac_modes = [getattr(HVACMode, mode.strip().upper()) for mode in config.get(CONF_HVAC_MODES).split(",") if mode.strip()]
 
-    fan_modes = config.get(CONF_FAN_MODES)
-    swing_modes = config.get(CONF_SWING_MODES)
-    swing_horizontal_modes = config.get(CONF_SWING_HORIZONTAL_MODES)
+    fan_modes = string_to_list(config.get(CONF_FAN_MODES))
+    swing_modes = string_to_list(config.get(CONF_SWING_MODES))
+    swing_horizontal_modes = string_to_list(config.get(CONF_SWING_HORIZONTAL_MODES))
     encryption_key = config.get(CONF_ENCRYPTION_KEY)
     uid = config.get(CONF_UID)
     auto_xfan_entity_id = config.get(CONF_AUTO_XFAN)
