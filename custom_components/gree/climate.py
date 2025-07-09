@@ -178,11 +178,11 @@ async def async_setup_platform(hass, config, async_add_devices, discovery_info=N
     air_entity_id = config.get(CONF_AIR)
     target_temp_entity_id = config.get(CONF_TARGET_TEMP)
 
-    hvac_modes = [getattr(HVACMode, key.upper()) for key in string_to_list(config.get(CONF_HVAC_MODES))]
+    hvac_modes = [getattr(HVACMode, key.upper()) for key in config.get(CONF_HVAC_MODES)]
 
-    fan_modes = string_to_list(config.get(CONF_FAN_MODES))
-    swing_modes = string_to_list(config.get(CONF_SWING_MODES))
-    swing_horizontal_modes = string_to_list(config.get(CONF_SWING_HORIZONTAL_MODES))
+    fan_modes = config.get(CONF_FAN_MODES)
+    swing_modes = config.get(CONF_SWING_MODES)
+    swing_horizontal_modes = config.get(CONF_SWING_HORIZONTAL_MODES)
     encryption_key = config.get(CONF_ENCRYPTION_KEY)
     uid = config.get(CONF_UID)
     auto_xfan_entity_id = config.get(CONF_AUTO_XFAN)
