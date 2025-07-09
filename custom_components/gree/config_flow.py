@@ -84,6 +84,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 vol.Optional(CONF_ENCRYPTION_KEY): str,
                 vol.Optional(CONF_UID): int,
                 vol.Optional(CONF_ENCRYPTION_VERSION, default=1): int,
+                vol.Optional(CONF_HVAC_MODES, default=DEFAULT_HVAC_MODES): list[str]
             }
         )
         return self.async_show_form(step_id="user", data_schema=data_schema)
@@ -130,11 +131,6 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         _LOGGER.debug("Current stored options: %s", options)
         schema = vol.Schema(
             {
-                vol.Optional(
-                    CONF_HVAC_MODES,
-                    description={"suggested_value": options.get(CONF_HVAC_MODES)},
-                    default=DEFAULT_HVAC_MODES,
-                ): vol.Any(None, list[str]),
                 vol.Optional(
                     CONF_TARGET_TEMP_STEP,
                     default=options.get(
