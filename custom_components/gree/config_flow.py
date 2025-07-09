@@ -38,6 +38,7 @@ from .climate import (
     CONF_UID,
     CONF_AUTO_XFAN,
     CONF_AUTO_LIGHT,
+    CONF_HVAC_MODES,
     CONF_FAN_MODES,
     CONF_SWING_MODES,
     CONF_SWING_HORIZONTAL_MODES,
@@ -125,6 +126,10 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         _LOGGER.debug("Current stored options: %s", options)
         schema = vol.Schema(
             {
+                vol.Optional(
+                    CONF_HVAC_MODES,
+                    description={"suggested_value": options.get(CONF_HVAC_MODES)},
+                ): vol.Any(None, list[str]),
                 vol.Optional(
                     CONF_TARGET_TEMP_STEP,
                     default=options.get(
