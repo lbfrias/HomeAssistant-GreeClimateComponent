@@ -144,7 +144,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                         selector.SelectSelectorConfig(
                             options=DEFAULT_HVAC_MODES,
                             multiple=True,
-                            custom_value=True,)
+                            custom_value=True
+                        )
                     )
                 ),
                 vol.Optional(
@@ -266,7 +267,9 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                         selector.SelectSelectorConfig(
                             options=DEFAULT_FAN_MODES,
                             multiple=True,
-                            custom_value=True,)
+                            custom_value=True,
+                            translation_key="option"
+                        )
                     )
                 ),
                 vol.Optional(
@@ -283,7 +286,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                         selector.SelectSelectorConfig(
                             options=DEFAULT_SWING_MODES,
                             multiple=True,
-                            custom_value=True,)
+                            custom_value=True
+                        )
                     )
                 ),
                 vol.Optional(
@@ -300,7 +304,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                         selector.SelectSelectorConfig(
                             options=DEFAULT_SWING_HORIZONTAL_MODES,
                             multiple=True,
-                            custom_value=True,)
+                            custom_value=True
+                        )
                     )
                 ),
                 vol.Optional(
